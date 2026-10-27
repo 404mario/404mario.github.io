@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="description" content="Mario — LLM inference researcher and open-source contributor. Working on MoE communication–computation overlap, KV cache, and GPU inference systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mario / LLM inference systems">
+  <meta property="og:description" content="Making inference move faster. Research notes, vLLM contributions, and experiments in GPU systems.">
+  <meta property="og:url" content="https://404mario.github.io/">
+  <meta property="og:image" content="https://404mario.github.io/assets/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://404mario.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Mario / LLM inference systems</title>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="#" aria-label="Mario homepage">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 25V7h6l7 9 7-9h6v18h-7V17l-6 8-6-8v8Z"/></svg>
+        <span>mario<span class="brand-slash"> / </span><span class="brand-handle">404mario</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#work" data-i18n="navWork">Selected work</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <button class="language-button" id="language" type="button" aria-label="切换为中文">中文 <span aria-hidden="true">↔</span></button>
+        <a class="nav-github" href="https://github.com/404mario" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="eyebrow">LLM INFERENCE · GPU SYSTEMS · OPEN SOURCE</span></p>
+          <h1 id="hero-title"><span data-i18n="heroLine1">Making inference</span><br><span class="accent" data-i18n="heroLine2">move faster.</span></h1>
+          <p class="hero-description" data-i18n="heroDescription">I'm Mario. I work on the systems behind large language models — overlapping communication with computation, moving KV cache, and understanding where GPU time goes.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work"><span data-i18n="explore">Explore my work</span><span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="https://github.com/vllm-project/vllm/pull/52781" target="_blank" rel="noopener noreferrer"><span data-i18n="viewPR">Read my vLLM PR</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-tags" aria-label="Research topics"><span>MoE / DeepEP</span><span>KV cache</span><span>GPU profiling</span></div>
+        </div>
+
+        <div class="experiment">
+          <div class="experiment-top"><span class="eyebrow" data-i18n="figureLabel">01 / THE OVERLAP IDEA</span><span class="figure-symbol" aria-hidden="true">↗</span></div>
+          <div class="experiment-heading">
+            <h2 data-i18n="figureTitle">Less waiting.<br>More working.</h2>
+            <p data-i18n="figureDescription">Let the shared expert compute while the combine is in flight.</p>
+          </div>
+          <div class="mode-control" role="group" aria-label="Illustration mode">
+            <button type="button" data-mode="serial" aria-pressed="false" data-i18n="serial">Synchronous</button>
+            <button type="button" class="active" data-mode="overlap" aria-pressed="true" data-i18n="overlap">Async overlap</button>
+          </div>
+          <div class="timeline" id="timeline" data-state="overlap">
+            <div class="timeline-scale"><span>t₀</span><span data-i18n="timeLabel">TIME →</span></div>
+            <div class="timeline-row"><span class="lane-label" data-i18n="communication">COMM.</span><div class="track"><div class="bar communication-bar"><span>combine</span></div></div></div>
+            <div class="timeline-row"><span class="lane-label" data-i18n="computation">COMPUTE</span><div class="track"><div class="bar compute-bar"><span>shared expert</span></div></div></div>
+            <div class="timeline-result"><span class="result-marker" aria-hidden="true"></span><span id="result" data-i18n="overlapResult">Join after both streams finish.</span></div>
+          </div>
+          <div class="experiment-bottom"><span class="mini-dot" aria-hidden="true"></span><span data-i18n="conceptNote">Conceptual illustration · not a measured timeline</span></div>
+        </div>
+      </section>
+
+      <div class="research-strip">
+        <span class="strip-label" data-i18n="workingOn">WORKING AT THE INTERSECTION OF</span>
+        <span>Inference performance</span><span class="strip-plus" aria-hidden="true">+</span><span>Distributed systems</span><span class="strip-plus" aria-hidden="true">+</span><span>GPU architecture</span>
+      </div>
+
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="workLabel">SELECTED WORK / 2026</p><h2 id="work-title" data-i18n="workTitle">From bottleneck to contribution.</h2></div><a class="text-link subtle" href="https://github.com/vllm-project/vllm/pulls?q=is%3Apr+author%3A404mario" target="_blank" rel="noopener noreferrer"><span data-i18n="allPRs">All vLLM PRs</span><span aria-hidden="true">↗</span></a></div>
+        <article class="featured-work">
+          <div class="featured-copy">
+            <div class="work-meta"><span class="project-label">vLLM / #52781</span><span class="badge merged"><span aria-hidden="true">✓</span> <span data-i18n="merged">MERGED</span></span></div>
+            <h3 data-i18n="featuredTitle">Making MoE communication<br>and computation overlap.</h3>
+            <p data-i18n="featuredDescription">DeepEP v2 async finalize lets shared-expert computation run alongside the combine operation, then joins through a device-side event. A smaller waiting window on the decode path.</p>
+            <div class="technical-tags"><span>DeepEP v2</span><span>MoE</span><span>CUDA graphs</span></div>
+            <a class="text-link" href="https://github.com/vllm-project/vllm/pull/52781" target="_blank" rel="noopener noreferrer"><span data-i18n="readContribution">Read the contribution</span><span aria-hidden="true">↗</span></a>
+            <p class="merge-date" data-i18n="mergeDate">PR author · Merged September 15, 2026</p>
+          </div>
+          <div class="measurement">
+            <div class="measurement-header"><span class="eyebrow" data-i18n="measurementLabel">REPORTED A/B OBSERVATION</span><span class="measurement-icon" aria-hidden="true">↘</span></div>
+            <p class="measurement-value">8.8<span>%</span></p>
+            <p class="measurement-description" data-i18n="measurementDescription">lower median decode ITL</p>
+            <div class="measurement-comparison"><div><span data-i18n="withoutOverlap">OVERLAP OFF</span><strong>15.71 <small>ms</small></strong></div><span class="comparison-arrow" aria-hidden="true">→</span><div><span data-i18n="withOverlap">OVERLAP ON</span><strong>14.32 <small>ms</small></strong></div></div>
+            <p class="measurement-note" data-i18n="measurementNote">DeepSeek-R1 FP8 · EP8 · GB300 · concurrency 1. Deployment observation documented in the PR; results depend on workload and hardware.</p>
+            <a class="measurement-source" href="https://github.com/vllm-project/vllm/pull/52781" target="_blank" rel="noopener noreferrer"><span data-i18n="source">Source: PR #52781</span> ↗</a>
+          </div>
+        </article>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="work-meta"><span class="project-label">vLLM / #51377</span><span class="badge in-progress" data-i18n="openRFC">OPEN RFC</span></div>
+            <div class="card-art fabric-art" aria-hidden="true"><div class="fabric-node">GPU<span>KV</span></div><div class="fabric-bridge"><span></span><span></span><span></span></div><div class="fabric-node">GPU<span>KV</span></div></div>
+            <h3 data-i18n="rfcTitle">KV cache, across node boundaries.</h3>
+            <p data-i18n="rfcDescription">An RFC exploring CUDA fabric memory allocation for cross-node MNNVL KV transfer on GB200 / GB300 NVL72 systems.</p>
+            <div class="card-bottom"><span class="card-category" data-i18n="rfcCategory">DISTRIBUTED INFERENCE</span><a href="https://github.com/vllm-project/vllm/pull/51377" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="Read KV cache RFC #51377">↗</a></div>
+          </article>
+          <article class="work-card">
+            <div class="work-meta"><span class="project-label">project2-flashattention-ip</span><span class="badge project" data-i18n="publicProject">PUBLIC PROJECT</span></div>
+            <div class="card-art attention-art" aria-hidden="true"><div class="matrix"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>Q × Kᵀ<br><span class="matrix-caption">attention / hardware</span></span></div>
+            <h3 data-i18n="attentionTitle">Attention, from another angle.</h3>
+            <p data-i18n="attentionDescription">A public SystemVerilog project exploring FlashAttention hardware. Part of my interest in how algorithms map onto the machines that run them.</p>
+            <div class="card-bottom"><span class="card-category">SYSTEMVERILOG / ATTENTION</span><a href="https://github.com/404mario/project2-flashattention-ip" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="Explore FlashAttention hardware project">↗</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-intro"><p class="eyebrow" data-i18n="aboutLabel">A LITTLE ABOUT ME</p><h2 id="about-title" data-i18n="aboutTitle">Curious about<br>the milliseconds.</h2><p data-i18n="aboutDescription">My focus is LLM inference optimization: the kernels, memory, communication, and scheduling decisions that shape serving performance. I like following a bottleneck all the way from a trace to the code.</p><a class="text-link" href="https://github.com/404mario" target="_blank" rel="noopener noreferrer"><span data-i18n="findGitHub">Find me on GitHub</span><span aria-hidden="true">↗</span></a></div>
+        <div class="focus-list">
+          <div class="focus-item"><span class="focus-number">01</span><div><h3 data-i18n="focus1Title">Communication × computation</h3><p data-i18n="focus1Description">MoE execution, DeepEP, and opportunities to keep both streams doing useful work.</p></div><span class="focus-arrow" aria-hidden="true">↗</span></div>
+          <div class="focus-item"><span class="focus-number">02</span><div><h3 data-i18n="focus2Title">Memory & KV cache</h3><p data-i18n="focus2Description">Cache lifecycles, data movement, and distributed inference beyond a single node.</p></div><span class="focus-arrow" aria-hidden="true">↗</span></div>
+          <div class="focus-item"><span class="focus-number">03</span><div><h3 data-i18n="focus3Title">Measure, then understand</h3><p data-i18n="focus3Description">GPU profiling, controlled comparisons, and connecting measurements to implementation.</p></div><span class="focus-arrow" aria-hidden="true">↗</span></div>
+        </div>
+      </section>
+      <section class="contact"><div><p class="eyebrow" data-i18n="contactLabel">NOTES, IDEAS, OR A SHARED BOTTLENECK?</p><h2 data-i18n="contactTitle">Let's compare traces.</h2></div><a class="button primary" href="https://github.com/404mario" target="_blank" rel="noopener noreferrer"><span data-i18n="connect">Connect on GitHub</span><span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer><span>© <span id="year">2026</span> Mario · 404mario</span><span data-i18n="footerNote">Built around the work. Linked to the evidence.</span><a href="#main" data-i18n="backTop">Back to top ↑</a></footer>
+  </div>
+</body>
+</html>
