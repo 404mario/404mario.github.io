@@ -18,13 +18,19 @@ Then open http://127.0.0.1:8080.
 
 ## Edit the website
 
-- `index.html`: layout, links, metadata, and default English content.
+- `index.html`: layout, links, metadata, and default Chinese content.
 - `style.css`: layout, colors, responsive styles, and the overlap illustration.
 - `script.js`: English/Chinese copy and the two interactive controls.
 - `assets/`: favicon and social preview.
 
-When editing text, update both `index.html` and the corresponding English and
-Chinese entries in `script.js`.
+When editing text, update both `index.html` and the corresponding Chinese and
+English entries in `script.js`. The default language is Chinese, with a
+persisted English/Chinese toggle. Native `details`/`summary` keep the experiment
+notes accessible even with JavaScript disabled.
+
+The site includes the owner's supplied background, “硕0，PKU 信科本”, and contact
+email, `2300012843@stu.pku.edu.cn`. It does not infer a master's institution or
+enrollment year. The current design direction is recorded in `DESIGN.md`.
 
 ## GitHub Pages
 
@@ -40,11 +46,11 @@ Pages serve these files directly.
 - Public hardware project:
   [project2-flashattention-ip](https://github.com/404mario/project2-flashattention-ip).
 
-The 8.8% ITL reduction is a deployment observation reported in #52781 for its
+The 8.8% and 5.3% ITL reductions are deployment observations reported in #52781 for its
 specified workload and hardware, not a general performance guarantee.
 The overlap diagram is conceptual and does not depict measured durations.
 PR statuses were checked on October 27, 2026; this site does not fetch live
 GitHub status. Update the relevant copy if an RFC is merged or closed.
-The Chinese font is a subset of the current copy. If you add new Chinese
+The Chinese font is a subset of the current copy, including punctuation. If you add new Chinese
 characters, update the subset or use a full Noto Sans SC font; system fonts
 provide a fallback.
